@@ -49,12 +49,10 @@ namespace WpfTicTacToe
 
         private void PlayerMove(object sender, RoutedEventArgs e)
         { 
-            
             var button = (Button)sender;
-            if (button.Background != Brushes.White) // Stops player from clicking used tile
-            {
-                return;
-            }
+
+            if (gameOver || (button.Background != Brushes.White)) // Makes gameboard unclickable until NewGame and stops player from clicking used tile
+            { return; } 
             else 
             {
                 player = CurrentPlayer.Player;
