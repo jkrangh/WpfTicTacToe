@@ -61,21 +61,31 @@ namespace WpfTicTacToe
                 button.Background = Brushes.MediumPurple;
                 gameTiles.Remove(button);
                 CheckWin(button);
-                CpuMove();
+                
+                if(!gameOver)
+                    CpuMove();
             }
         }
 
 
         private void CpuMove()
         {
-            player = CurrentPlayer.CPU;
-            Thread.Sleep(500); // Adds suspense
-            int index = random.Next(gameTiles.Count);            
-            var button = gameTiles[index];
-            button.Background = Brushes.Orange;
-            gameTiles.Remove(button);
-            CheckWin(button);
+            if (gameTiles.Count == 0)
+            {
+                MessageBox.Show("Draw!");
+                return;
+            }
 
+            if (!gameOver)
+            {
+                player = CurrentPlayer.CPU;
+                Thread.Sleep(500); // Adds suspense
+                int index = random.Next(gameTiles.Count);
+                var button = gameTiles[index];
+                button.Background = Brushes.Orange;
+                gameTiles.Remove(button);
+                CheckWin(button);
+            }
         }
 
         
@@ -99,11 +109,17 @@ namespace WpfTicTacToe
                 {
                     gameOver = true;
                     MessageBox.Show($"{player} Wins!");
-                    
+
                     if (player == CurrentPlayer.Player)
+                    {
                         playerWins++;
+                        PlayerWins.Content = $"Player: {playerWins}";
+                    }
                     else
-                        cpuWins++;    
+                    {
+                        cpuWins++;
+                        CPUWins.Content = $"CPU: {cpuWins}";
+                    }
                 }
             }
 

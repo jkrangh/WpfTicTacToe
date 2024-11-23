@@ -28,5 +28,9 @@
         <Button x:Name="btn7" Grid.Row="2" Grid.Column="0" Click="PlayerMove"/>
         <Button x:Name="btn8" Grid.Row="2" Grid.Column="1" Click="PlayerMove"/>
         <Button x:Name="btn9" Grid.Row="2" Grid.Column="2" Click="PlayerMove"/>
+        <TextBlock Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label x:Name="PlayerWins" Foreground="MediumPurple" FontSize="20" Content="Player: 0"/>
+            <Label x:Name="CPUWins" Foreground="Orange" FontSize="20" Content="CPU: 0"/>
+        </TextBlock>
     </Grid>
 </Window>
