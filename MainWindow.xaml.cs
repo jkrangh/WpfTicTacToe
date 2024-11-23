@@ -1,25 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Media;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfTicTacToe
-{
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+{    
     public partial class MainWindow : Window
     {
         bool gameOver;
-        List<Button> gameTiles = new List<Button>();
+        List<Button> gameTiles = new List<Button>(); // A list of unclicked buttons for CPU-moves to work
         Random random = new Random();
         CurrentPlayer player;
         int playerWins = 0;
@@ -30,7 +18,9 @@ namespace WpfTicTacToe
             InitializeComponent();
             NewGame();
         }
-
+        /// <summary>
+        /// Resets buttons for
+        /// </summary>
         private void NewGame()
         {
             gameTiles.Clear();
@@ -65,7 +55,6 @@ namespace WpfTicTacToe
             }
         }
 
-
         private void CpuMove()
         {
             if (gameTiles.Count == 0)
@@ -85,7 +74,6 @@ namespace WpfTicTacToe
                 CheckWin(button);
             }
         }
-
         
         /*
          * 1|2|3
@@ -119,12 +107,7 @@ namespace WpfTicTacToe
                         CPUWins.Content = $"CPU: {cpuWins}";
                     }
                 }
-            }
-
-            
+            }            
         }
-
-
-
     }
 }

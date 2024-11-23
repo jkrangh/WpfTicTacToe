@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTicTacToe"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="500">
+        Title="MainWindow" Height="550" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -28,9 +28,9 @@
         <Button x:Name="btn7" Grid.Row="2" Grid.Column="0" Click="PlayerMove"/>
         <Button x:Name="btn8" Grid.Row="2" Grid.Column="1" Click="PlayerMove"/>
         <Button x:Name="btn9" Grid.Row="2" Grid.Column="2" Click="PlayerMove"/>
-        <TextBlock Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label x:Name="PlayerWins" Foreground="MediumPurple" FontSize="20" Content="Player: 0"/>
-            <Label x:Name="CPUWins" Foreground="Orange" FontSize="20" Content="CPU: 0"/>
+        <TextBlock Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20">
+            <Label x:Name="PlayerWins" Foreground="MediumPurple" Content="Player: 0"/>
+            <Label x:Name="CPUWins" Foreground="Orange" Content="CPU: 0"/>
         </TextBlock>
     </Grid>
 </Window>
