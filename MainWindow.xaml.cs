@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Media;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -42,13 +43,25 @@ namespace WpfTicTacToe
         }
 
         private void PlayerMove(object sender, RoutedEventArgs e)
-        {            
-            var button = (Button)sender;
-            button.Background = Brushes.MediumPurple;
-            gameTiles.Remove(button);
-
+        { 
             
-            CpuMove();
+            var button = (Button)sender;
+            if (button.Background != Brushes.White) // Stops player from clicking used tile
+            {
+                return;
+            }
+            else 
+            { 
+                button.Background = Brushes.MediumPurple;
+                gameTiles.Remove(button);
+                CheckWin();
+                CpuMove();
+            }
+        }
+
+        private void CheckWin()
+        {
+            throw new NotImplementedException();
         }
 
         private void CpuMove()
