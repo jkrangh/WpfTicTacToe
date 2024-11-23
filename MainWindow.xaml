@@ -19,14 +19,14 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Button x:Name="btnNewGame" Content="New Game" Grid.Row="4" Grid.Column="1" Click="btnNewGame_Click"/>
-        <Button x:Name="btn1" Grid.Row="0" Grid.Column="0" Click="btn_Click"/>
-        <Button x:Name="btn2" Grid.Row="0" Grid.Column="1" Click="btn_Click"/>
-        <Button x:Name="btn3" Grid.Row="0" Grid.Column="2" Click="btn_Click"/>
-        <Button x:Name="btn4" Grid.Row="1" Grid.Column="0" Click="btn_Click"/>
-        <Button x:Name="btn5" Grid.Row="1" Grid.Column="1" Click="btn_Click"/>
-        <Button x:Name="btn6" Grid.Row="1" Grid.Column="2" Click="btn_Click"/>
-        <Button x:Name="btn7" Grid.Row="2" Grid.Column="0" Click="btn_Click"/>
-        <Button x:Name="btn8" Grid.Row="2" Grid.Column="1" Click="btn_Click"/>
-        <Button x:Name="btn9" Grid.Row="2" Grid.Column="2" Click="btn_Click"/>
+        <Button x:Name="btn1" Grid.Row="0" Grid.Column="0" Click="PlayerMove"/>
+        <Button x:Name="btn2" Grid.Row="0" Grid.Column="1" Click="PlayerMove"/>
+        <Button x:Name="btn3" Grid.Row="0" Grid.Column="2" Click="PlayerMove"/>
+        <Button x:Name="btn4" Grid.Row="1" Grid.Column="0" Click="PlayerMove"/>
+        <Button x:Name="btn5" Grid.Row="1" Grid.Column="1" Click="PlayerMove"/>
+        <Button x:Name="btn6" Grid.Row="1" Grid.Column="2" Click="PlayerMove"/>
+        <Button x:Name="btn7" Grid.Row="2" Grid.Column="0" Click="PlayerMove"/>
+        <Button x:Name="btn8" Grid.Row="2" Grid.Column="1" Click="PlayerMove"/>
+        <Button x:Name="btn9" Grid.Row="2" Grid.Column="2" Click="PlayerMove"/>
     </Grid>
 </Window>
