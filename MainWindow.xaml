@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTicTacToe"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="500">
+        Title="WpfTicTacToe" Height="550" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
