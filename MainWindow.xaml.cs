@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Media;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -19,7 +20,7 @@ namespace WpfTicTacToe
             NewGame();
         }
         /// <summary>
-        /// Resets buttons for
+        /// Resets buttons for new game
         /// </summary>
         private void NewGame()
         {
@@ -41,8 +42,8 @@ namespace WpfTicTacToe
         { 
             var button = (Button)sender;
 
-            if (gameOver || (button.Background != Brushes.White)) // Makes gameboard unclickable until NewGame and stops player from clicking used tile
-            { return; } 
+            if (gameOver || (button.Background != Brushes.White)) // Makes gameboard unclickable until NewGame or stops player from clicking used tiles
+                return;  
             else 
             {
                 player = CurrentPlayer.Player;
@@ -57,9 +58,10 @@ namespace WpfTicTacToe
 
         private void CpuMove()
         {
-            if (gameTiles.Count == 0)
+            if (gameTiles.Count == 0) // If all buttons are clicked, games is a draw
             {
                 MessageBox.Show("Draw!");
+                gameOver = true;
                 return;
             }
 
@@ -75,7 +77,7 @@ namespace WpfTicTacToe
             }
         }
         
-        /*
+        /* Button layout
          * 1|2|3
          * 4|5|6
          * 7|8|9
@@ -93,21 +95,36 @@ namespace WpfTicTacToe
                     ((button.Background == btn1.Background) && (button.Background == btn5.Background) && (button.Background == btn9.Background)) || //Diagonal win
                     ((button.Background == btn3.Background) && (button.Background == btn5.Background) && (button.Background == btn7.Background))) //Diagonal win
                 {
-                    gameOver = true;
-                    MessageBox.Show($"{player} Wins!");
+                    gameOver = true;                    
 
                     if (player == CurrentPlayer.Player)
                     {
+                        PlaySound("./Resources/TADA.WAV");
                         playerWins++;
                         PlayerWins.Content = $"Player: {playerWins}";
+                        MessageBox.Show($"{player} Wins!");
                     }
                     else
                     {
+                        PlaySound("./Resources/CHORD.WAV");
                         cpuWins++;
                         CPUWins.Content = $"CPU: {cpuWins}";
+                        MessageBox.Show($"{player} Wins!");
                     }
                 }
             }            
+        }
+        // Plays a sound at game win or lose, skips if load fail
+        public void PlaySound(string soundPath)
+        {
+            SoundPlayer player = new SoundPlayer(soundPath);
+
+            try
+            {
+                player.Load();
+                player.Play();
+            }
+            catch { return; }
         }
     }
 }
